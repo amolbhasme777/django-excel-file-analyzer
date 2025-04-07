@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Uploaded Data{% endblock %}
+{% block content %}
+<h4>Uploaded Data</h4>
+<table class="striped responsive-table">
+    <thead>
+        <tr>
+            <th>Sno</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in page_obj %}
+        <tr>
+            <td>{{ row.sno }}</td>
+            <td>{{ row.first_name }}</td>
+            <td>{{ row.last_name }}</td>
+            <td>{{ row.gender }}</td>
+            <td>{{ row.date_of_birth }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="center">
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li class="waves-effect"><a href="?page={{ page_obj.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+        {% else %}
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+        <li class="active"><a href="#!">{{ num }}</a></li>
+        {% else %}
+        <li class="waves-effect"><a href="?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="waves-effect"><a href="?page={{ page_obj.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+        {% else %}
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}

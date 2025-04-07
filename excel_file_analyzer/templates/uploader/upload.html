@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Upload Excel{% endblock %}
+{% block content %}
+<h4>Upload Excel File</h4>
+<form method="post" enctype="multipart/form-data" class="col s12">
+    {% csrf_token %}
+    <div class="file-field input-field">
+        <div class="btn">
+            <span>Choose File</span>
+            {{ form.file }}
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload .xlsx file">
+        </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit">Upload</button>
+</form>
+
+{% if messages %}
+    <ul class="collection">
+        {% for message in messages %}
+            <li class="collection-item {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
