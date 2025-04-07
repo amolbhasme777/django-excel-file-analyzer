@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Validation Errors{% endblock %}
+{% block content %}
+<h4>Validation Errors</h4>
+<ul class="collection">
+    {% for error in errors %}
+        <li class="collection-item red lighten-4">{{ error }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'upload' %}" class="btn blue">Go Back</a>
+{% endblock %}

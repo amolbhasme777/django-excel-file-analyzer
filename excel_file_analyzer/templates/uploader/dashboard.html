@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h4>User Demographics</h4>
+<canvas id="genderChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('genderChart');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Male', 'Female', 'Other'],
+    datasets: [{
+      label: '# of Users',
+      data: [{{ gender_counts.M }}, {{ gender_counts.F }}, {{ gender_counts.O }}],
+      backgroundColor: ['#2196F3', '#E91E63', '#9E9E9E']
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Number of Users by Gender'
+      }
+    }
+  }
+});
+</script>
+{% endblock %}
