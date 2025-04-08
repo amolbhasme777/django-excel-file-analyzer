@@ -8,7 +8,7 @@ This is a Django-based web application that allows users to upload Excel files, 
 
 - ✅ Upload `.xlsx` Excel files
 - 🧪 Validate data with custom business rules
-- 🛑 View and download detailed error reports
+- 🛑 Validating errors
 - 🗃️ Store validated data in a relational database
 - 📈 Dashboard showing gender distribution
 - 📄 View list of uploaded files and associated records
