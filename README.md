@@ -17,12 +17,12 @@ This is a Django-based web application that allows users to upload Excel files, 
 ---
 
 ## Technologies Used
-Python 3.10+
-Django 5.2+
-Pandas (for Excel parsing & validation)
-SQLite (default DB)
-Materialize CSS (Material UI frontend framework)
-JavaScript (for toggle sidebar behavior)
+- Python 3.10+
+- Django 5.2+
+- Pandas (for Excel parsing & validation)
+- SQLite (default DB)
+- Materialize CSS (Material UI frontend framework)
+- JavaScript (for toggle sidebar behavior)
 
 ## 📦 Project Structure
 
